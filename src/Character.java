@@ -26,19 +26,19 @@ public class Character {
     private int abilityScoreWisdom;                                 // The character's Wisdom value.
     private int abilityScoreCharisma;                               // The character's Charisma value.
     private ArrayList<Item> itemsList = new ArrayList<>();          // A list of all items in the character's inventory.
-    private ArrayList<Skill> skillsList = new ArrayList<>();        // A list of all skills the character is proficient in.
+    private ArrayList<String> skillsList = new ArrayList<>();       // A list of all skills the character is proficient in.  The arrayList should contain the String ids of each skill.
     private ArrayList<Spell> knownSpells = new ArrayList<>();       // A list of ALL spells the character currently knows, via spellbook or innate memorization.
     private ArrayList<Spell> memorizedSpells = new ArrayList<>();   // A list of the CURRENTLY MEMORIZED spells for the character.
     
     // Setters and getters.
     // For ID.
-    public void setID(int idIn) {this.id = idIn;}   
+    public void setID(int idIn) {this.id = idIn;}
     public int getID() {return this.id;}
     // For name.
-    public void setName(String nameIn) {this.name = nameIn;}    
+    public void setName(String nameIn) {this.name = nameIn;}
     public String getName() {return this.name;}
     // For race.
-    public void setRace(String raceIn) {this.race = raceIn;}  
+    public void setRace(String raceIn) {this.race = raceIn;}
     public String getRace() {return this.race;}
     // For size.
     public void setSize(String sizeIn) {this.size = sizeIn;}
@@ -126,4 +126,12 @@ public class Character {
         } // End for.
         return new Item();
     } // End public Item getInventoryItemByID.
+    
+    // For adding a skill to the Character's skillsList.
+    public void addSkill(String skillIDIn) {
+        if (!this.skillsList.contains(skillIDIn)) { // Only add the Skill id if it doesn't currently exist in the skills list.
+            skillsList.add(skillIDIn);
+        } // End if.
+    } // End public void addSkill.
+    
 } // End public class Character.
